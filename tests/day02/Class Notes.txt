@@ -5,15 +5,16 @@ Topics:
     Locator Object Methods
     Hooks Functions
     MORE AI
-
-    Basic Authentication
-    Environment Variables
-
-    SEP Project Intro
     
 
 
 Next Class:
     Playwright Assertions
+
+     Basic Authentication
+    Environment Variables
+
+    SEP Project Intro
+    
     iframes
     Alerts

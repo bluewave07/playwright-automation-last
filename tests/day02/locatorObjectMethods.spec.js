@@ -45,11 +45,46 @@ test.describe('Test Group', () => {
     // select by index
     await simpleDropDown.selectOption( { index: 1 } );
 
-    
   //  await page.waitForTimeout(3000);
 
+  });
+
+
+  test('innerText() retrives the visible text', async ({ page }) => {
+
+     let headerElement = page.locator("//span[@class='h1y']");
+
+     let actualText = await headerElement.innerText();
+
+     console.log(actualText);
+    
+  });
+
+  
+   test('inputValue(): only works with <input>, <textarea>, <select>', async ({ page }) => {
+
+        let inputsLink = page.getByText("Inputs");
+
+      //  await inputsLink.scrollIntoViewIfNeeded();
+      //  await page.waitForTimeout(3000);
+
+        await inputsLink.click();
+
+        let inputBox = page.locator("//input[@type='number']");
+
+        await page.waitForTimeout(3000);
+
+
+        await inputBox.fill("123");
+
+        await page.waitForTimeout(3000);
+
+        let inputValue = await inputBox.inputValue();
+
+        console.log(inputValue);
 
   });
+
 
 });
 
