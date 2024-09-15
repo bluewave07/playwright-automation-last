@@ -26,11 +26,30 @@ test.describe('Test Group', () => {
 
     await checkBox2.uncheck();
 
-
   });
 
-  test('', async ({ page }) => {
+  test('selectOption() used for dropdowns', async ({ page }) => {
     
+    page.locator("text='Dropdown'").click();
+
+    let simpleDropDown =page.locator("//select[@id='dropdown']");
+
+   // await page.waitForTimeout(3000);
+
+    // select by value
+   // await simpleDropDown.selectOption("1");
+
+   // select by visible text
+   // await simpleDropDown.selectOption( { label: "Option 1" } );
+
+    // select by index
+    await simpleDropDown.selectOption( { index: 1 } );
+
+    
+  //  await page.waitForTimeout(3000);
+
+
   });
+
 });
 
