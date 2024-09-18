@@ -2,7 +2,7 @@ Playwright Day03
 
 Topics:
     Locator Object Methods Continue
-	Basic Authentication
+	Web Based Authentication
 	Environment Variables (extension & terminal)
 	Assertions Intro
 
