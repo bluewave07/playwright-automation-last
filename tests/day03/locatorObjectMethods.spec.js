@@ -33,9 +33,14 @@ test.describe("Test Group", () => {
 
     console.log("--------------------------------");
 
+    await page.locator("text='Checkboxes'").click();
+
+    let checkBox1 = page.locator("//input[@type='checkbox' and @id='box1']");
+    let checkBox2 = page.locator("//input[@type='checkbox' and @id='box2']");
+
 
   });
-  
+
 });
 /*
 <a class="nav-link" href="/">Home</a>
