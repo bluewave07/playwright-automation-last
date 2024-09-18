@@ -38,10 +38,14 @@ test.describe("Test Group", () => {
     let checkBox1 = page.locator("//input[@type='checkbox' and @id='box1']");
     let checkBox2 = page.locator("//input[@type='checkbox' and @id='box2']");
 
+    // verify that checkbox1 is unchecked by default
+    expect(  await checkBox1.isChecked() ).toBeFalsy();
+    await expect(checkBox1).not.toBeChecked();
+
+    // verify that checkBox2 is checked by default
+    expect(await checkBox2.isChecked()).toBeTruthy();
+    await expect(checkBox2).toBeChecked();
 
   });
 
 });
-/*
-<a class="nav-link" href="/">Home</a>
-*/
