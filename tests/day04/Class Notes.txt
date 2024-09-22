@@ -2,7 +2,7 @@ Playwright Automation Day04
 
 Topics:
 	Assertions Continue
-	List of Elements
+	List/Array of Elements
 	iframes
 	alerts
 	mouse actions
@@ -14,6 +14,6 @@ Practice Tasks:
 
     2. Verify that each of the 50 link elements within the <ul> element is visible.
 
-    3. Verify that each of the 50 link elements within the <ul> element are enabled.
+    3. Verify that each of the 50 link elements within the <ul> element is enabled.
 
     4. Verify that each of the 50 link elements within the <ul> element have a valid `href` attribute.
