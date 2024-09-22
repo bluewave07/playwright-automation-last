@@ -31,12 +31,38 @@ test.describe("Test Group", () => {
   test("Locate the frame by CSS", async ({ page }) => {
      let myFrame = page.frameLocator("iframe.tox-edit-area__iframe");
      let elementInsideTheFrame = myFrame.locator("//body[@id='tinymce']");
-     
+/*
+     await page.waitForTimeout(3000);
+     await elementInsideTheFrame.press("Control+A");
+     await page.waitForTimeout(3000);
+     await elementInsideTheFrame.press("Backspace");
+     await page.waitForTimeout(3000);
+     */
+
+     await elementInsideTheFrame.press("Control+A", "Backspace");
+     await page.waitForTimeout(3000);
+     await elementInsideTheFrame.fill("Playwright Automation");
+     await page.waitForTimeout(3000);
+     expect(await elementInsideTheFrame.innerText()).toBe("Playwright Automation");
 
   });
 
-  test("C", async ({ page }) => {
-    // Test implementation goes here
+  test("Locate the frame by Xpath", async ({ page }) => {
+    let myFrame = page.frameLocator("//iframe[@id='mce_0_ifr']");
+    let elementInsideTheFrame = myFrame.locator("//body[@id='tinymce']");
+/*
+    await page.waitForTimeout(3000);
+    await elementInsideTheFrame.press("Control+A");
+    await page.waitForTimeout(3000);
+    await elementInsideTheFrame.press("Backspace");
+    await page.waitForTimeout(3000);
+    */
+
+    await elementInsideTheFrame.press("Control+A", "Backspace");
+    await page.waitForTimeout(3000);
+    await elementInsideTheFrame.fill("Playwright Automation");
+    await page.waitForTimeout(3000);
+    expect(await elementInsideTheFrame.innerText()).toBe("Playwright Automation");
   });
 
 
