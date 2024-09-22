@@ -1,4 +1,4 @@
-import { test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
 test.describe("Alert Tests", () => {
   // create beforeEach
@@ -7,6 +7,22 @@ test.describe("Alert Tests", () => {
   });
 
   test("Handling JS Alert Test", async ({ page }) => {
+
+    page.on("dialog", async (alert) => {
+        console.log(alert.message());
+        await page.waitForTimeout(3000);
+        await alert.accept();
+    });
+
+    let clickForJSAlertButton = page.locator("//button[@onclick='jsAlert()']");
+
+    await clickForJSAlertButton.click(); // triggers the alert
+
+    // pase for 3 sconds
+    await page.waitForTimeout(3000);
+
+    await expect(page.locator("text='You successfully clicked an alert'")).toBeVisible();
+
 
   });
 
@@ -19,3 +35,6 @@ test.describe("Alert Tests", () => {
   });
 
 });
+
+
+// come back at 1:20 pm EST
