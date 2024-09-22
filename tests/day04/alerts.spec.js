@@ -1,15 +1,21 @@
-import { test } from '@playwright/test';
+import { test } from "@playwright/test";
 
-test.describe('Alert Tests', () => {
-  test('A', async ({ page }) => {
-    // Test implementation goes here
+test.describe("Alert Tests", () => {
+  // create beforeEach
+  test.beforeEach(async ({ page }) => {
+    await page.goto("https://practice.cydeo.com/javascript_alerts");
   });
 
-  test('B', async ({ page }) => {
-    // Test implementation goes here
+  test("Handling JS Alert Test", async ({ page }) => {
+
   });
 
-  test('C', async ({ page }) => {
-    // Test implementation goes here
+  test("Handling JS Confirm Test", async ({ page }) => {
+
   });
+
+  test("Handling JS Prompt Test", async ({ page }) => {
+
+  });
+
 });
