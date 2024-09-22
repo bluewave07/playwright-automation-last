@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test.describe("Test Group", () => {
+test.describe("Array of Elements tests", () => {
 
     let elements;
 
