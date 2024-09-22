@@ -42,3 +42,5 @@ Assignment:
 
 	11. Click Pay button
 
+	12. Verify that the payment made successfully
+
