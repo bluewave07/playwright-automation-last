@@ -27,10 +27,36 @@ test.describe("Alert Tests", () => {
   });
 
   test("Handling JS Confirm Test", async ({ page }) => {
+    page.on("dialog", async (alert) => {
+        console.log(alert.message());
+        await page.waitForTimeout(3000);
+        await alert.dismiss();
+    });
+
+    let clickForJSConfirmButton = page.locator("//button[@onclick='jsConfirm()']");
+
+    await clickForJSConfirmButton.click();
+
+    await page.waitForTimeout(3000);
+
+    await expect(page.locator("text='You clicked: Cancel'")).toBeVisible();
 
   });
 
   test("Handling JS Prompt Test", async ({ page }) => {
+    page.on("dialog", async (alert) => {
+        console.log(alert.message());
+        await page.waitForTimeout(3000);
+        await alert.accept("Hello CYDEO");
+    });
+
+    let clickForJSPromptButton = page.locator("//button[@onclick='jsPrompt()']");
+
+    await clickForJSPromptButton.click();
+
+    await page.waitForTimeout(3000);
+
+    await expect(page.locator("text='You entered: Hello CYDEO'")).toBeVisible();
 
   });
 
