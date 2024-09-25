@@ -7,7 +7,6 @@ test('sep practice', async ({ page }) => {
         Authorization: `Basic ${code}`
     });
 
-
     await page.goto(process.env.SEP_URL);
 
     let first_name_input = page.locator("//input[@formcontrolname='firstName']");
@@ -37,7 +36,41 @@ test('sep practice', async ({ page }) => {
 
     let next_button = page.locator("//button[@type='submit' and text()=' Next']");
 
-    next_button.click();
+    await next_button.click();
+
+    let upfront_payment_plan = page.locator("//mat-expansion-panel-header[.//span[contains(text(), 'Upfront')]]");
+
+    await upfront_payment_plan.click();
+
+    let next_button2 = page.locator("//button[@class='next-button' and text()='Next']");
+
+    await next_button2.click();
+
+    let payment_iframe = page.frameLocator("//iframe[@allow='payment *; publickey-credentials-get *']");
+
+    let card_number_input = payment_iframe.locator("//input[@id='Field-numberInput']");
+
+    await card_number_input.fill("5555555555554444");
+
+    let expiration_date_input = payment_iframe.locator("//input[@id='Field-expiryInput']");
+    
+    await expiration_date_input.fill("12/28");
+
+    let cvc_input = payment_iframe.locator("//input[@id='Field-cvcInput']");
+
+    await cvc_input.fill("123");
+
+    let zip_code_input = payment_iframe.locator("//input[@id='Field-postalCodeInput']");
+
+    await zip_code_input.fill("12345");
+
+    let terms_conditions_checkbox = page.locator("//input[@type='checkbox']");
+
+    await terms_conditions_checkbox.check();
+
+    let pay_button = page.locator("//button[@type='button' and contains(@class, 'next-button')]");
+
+    await pay_button.click();
 
     await page.waitForTimeout(3000);
 
