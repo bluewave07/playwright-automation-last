@@ -1,0 +1,12 @@
+Playwright Automation Day05
+
+Topics:
+    Recap
+	Mouse Actions
+    Web Tables
+
+
+Next Class:
+    File upload & download
+    More AI
+    Running playwright with Jenkins
