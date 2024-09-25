@@ -26,6 +26,18 @@ test('sep practice', async ({ page }) => {
 
     await phone_input.fill("1234567890");
 
+    let how_did_you_hear_dropdown = page.locator("//mat-label[text()='How did you hear about us?']");
+
+    let email_option = page.locator("//span[text()='Email']");
+
+    await how_did_you_hear_dropdown.click();
+
+
+    await email_option.click();
+
+    let next_button = page.locator("//button[@type='submit' and text()=' Next']");
+
+    next_button.click();
 
     await page.waitForTimeout(3000);
 
