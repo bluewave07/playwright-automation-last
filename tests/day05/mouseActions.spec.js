@@ -24,10 +24,23 @@ test.describe("Test Group", () => {
   });
 
   test("Hover", async ({ page }) => {
-    await page.click("text='Hovers'")
+    await page.click("text='Hovers'");
+   // await page.waitForTimeout(3000);
+    // await page.hover("//img[@alt='User Avatar']");
+
+   let elements = await page.locator("//img[@alt='User Avatar']").all();
+
+   for(let each of elements) {
+    await page.waitForTimeout(3000);
+     await each.hover();
+   }
+
+
   });
 
   test("Scroll", async ({ page }) => {
     // Your test steps go here
   });
 });
+
+// come back at 7:40 PM EST
