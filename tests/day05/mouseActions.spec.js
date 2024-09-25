@@ -20,11 +20,11 @@ test.describe("Test Group", () => {
   });
 
   test("Double Click", async ({ page }) => {
-    // Your test steps go here
+    await page.dblclick("text='Checkboxes'");
   });
 
   test("Hover", async ({ page }) => {
-    // Your test steps go here
+    await page.click("text='Hovers'")
   });
 
   test("Scroll", async ({ page }) => {
