@@ -1,6 +1,7 @@
 import { test } from '@playwright/test';
 
 test('sep practice', async ({ page }) => {
+    
     const code = Buffer.from(`${process.env.SEP_USERNAME}:${process.env.SEP_PASSWORD}`).toString("base64");
 
     await page.setExtraHTTPHeaders({
