@@ -50,19 +50,19 @@ test('sep practice', async ({ page }) => {
 
     let card_number_input = payment_iframe.locator("//input[@id='Field-numberInput']");
 
-    await card_number_input.fill("5555555555554444");
+    await card_number_input.fill(process.env.CARD_NUMBER);
 
     let expiration_date_input = payment_iframe.locator("//input[@id='Field-expiryInput']");
     
-    await expiration_date_input.fill("12/28");
+    await expiration_date_input.fill(process.env.EXPIRATION_DATE);
 
     let cvc_input = payment_iframe.locator("//input[@id='Field-cvcInput']");
 
-    await cvc_input.fill("123");
+    await cvc_input.fill(process.env.CVC);
 
     let zip_code_input = payment_iframe.locator("//input[@id='Field-postalCodeInput']");
 
-    await zip_code_input.fill("12345");
+    await zip_code_input.fill(process.env.ZIP_CODE);
 
     let terms_conditions_checkbox = page.locator("//input[@type='checkbox']");
 
