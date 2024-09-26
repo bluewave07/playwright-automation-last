@@ -35,12 +35,40 @@ test.describe("Test Group", () => {
      await each.hover();
    }
 
+  });
+
+  test("Mouse wheel Scrolling", async ({ page }) => {
+    await page.waitForTimeout(3000);
+    page.mouse.wheel(0, 300)
+  });
+
+  test("Scrolling to specific element", async ({ page }) => {
+    
+    let element = page.locator("text='Inputs'");
+
+    await page.waitForTimeout(3000);
+
+    await element.scrollIntoViewIfNeeded();
+
+    await page.waitForTimeout(3000);
+
+    await element.click();
+    
+  });
+
+  test("Drag and Drop", async ({ page }) => {
+    await page.click("text='Drag and Drop'");
+
+    let source = page.locator("//div[@id='column-a']");
+    let target = page.locator("//div[@id='column-b']");
+
+    await page.waitForTimeout(3000);
+   // await page.dragAndDrop("//div[@id='column-a']", "//div[@id='column-b']");
+
+   await source.dragTo(target);
 
   });
 
-  test("Scroll", async ({ page }) => {
-    // Your test steps go here
-  });
+
 });
 
-// come back at 7:40 PM EST
