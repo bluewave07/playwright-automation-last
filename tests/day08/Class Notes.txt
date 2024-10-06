@@ -9,3 +9,4 @@ Topics:
 
 Next Class (next Sunday):
 	TypeScript Programming
+	
