@@ -33,6 +33,7 @@ test('File Upload Practice', async ({ page }) => {
     // navigate to https://practice.cydeo.com/upload
     await page.goto("https://practice.cydeo.com/upload");
 
+    // select the file path
     let filePath = path.join(__dirname, "upload", "Class Notes.txt");
 
     await page.waitForTimeout(3000);
