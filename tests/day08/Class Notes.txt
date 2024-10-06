@@ -1,0 +1,11 @@
+Playwright Day08:
+
+Topics:
+	Multi-windows
+	Multi-browser instances
+	File Upload & Download
+	More Perplexity Collections
+
+
+Next Class (next Sunday):
+	TypeScript Programming
