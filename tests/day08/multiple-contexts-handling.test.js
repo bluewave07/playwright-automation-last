@@ -27,6 +27,14 @@ test('Creating multiple contexts', async ({ browser }) => {
 
     await page4.waitForTimeout(3000);
 
+/*
+    let firefoxBrowser = await firefox.launch();
+    let firefoxContext = await firefoxBrowser.newContext();
+    let page5 = await firefoxContext.newPage();
+    await page5.goto("https://cydeo.com/");
+
+    await page4.waitForTimeout(3000);
+*/
 });
 
 
