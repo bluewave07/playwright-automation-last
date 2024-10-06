@@ -30,6 +30,23 @@ test('File Download Practice', async ({ page }) => {
 
 test('File Upload Practice', async ({ page }) => {
     
+    // navigate to https://practice.cydeo.com/upload
+    await page.goto("https://practice.cydeo.com/upload");
+
+    let filePath = path.join(__dirname, "upload", "Class Notes.txt");
+
+    await page.waitForTimeout(3000);
+
+    await page.setInputFiles("//input[@id='file-upload']" , filePath ); // choose file step
+
+    await page.waitForTimeout(3000);
+
+    await page.click("//input[@id='file-submit']"); // upload
+
+    await page.waitForTimeout(3000);
+
+    await expect(page.locator("text='File Uploaded!'")).toBeVisible();
+
     
 
 });
