@@ -2,13 +2,16 @@ import { expect, test } from "@playwright/test";
 
 test("Opening multiple tabs in a context", async ({ context }) => {
   // Create a new page in the Playwright context for Google
+  
   let googlePage = await context.newPage();
 
   // Create a new page in the Playwright context for YouTube
   let youTubePage = await context.newPage();
 
+  
+
   // Wait for 3 seconds to ensure the new pages are fully loaded
-  await youTubePage.waitForTimeout(3000);
+  //await youTubePage.waitForTimeout(3000);
 
   // Bring the Google page to the front
   await googlePage.bringToFront();
@@ -16,8 +19,9 @@ test("Opening multiple tabs in a context", async ({ context }) => {
   // Navigate to the Google homepage
   await googlePage.goto("https://www.google.com/");
 
+  await googlePage.locator("//div[text()='Alle akzeptieren']").click();
   // Wait for 3 seconds after navigating to the Google homepage
-  await youTubePage.waitForTimeout(3000);
+  //await youTubePage.waitForTimeout(3000);
 
   // Assert that the Google page has the expected title
   await expect(googlePage).toHaveTitle("Google");
@@ -29,13 +33,13 @@ test("Opening multiple tabs in a context", async ({ context }) => {
   await googleSearchBox.fill("CYDEO");
 
   // Wait for 3 seconds after filling the search box
-  await googlePage.waitForTimeout(3000);
+  //await googlePage.waitForTimeout(3000);
 
   // Press the Enter key to submit the Google search
   await googleSearchBox.press("Enter");
 
   // Wait for 3 seconds after submitting the search
-  await googlePage.waitForTimeout(3000);
+  //await googlePage.waitForTimeout(3000);
 
   // Bring the YouTube page to the front
   await youTubePage.bringToFront();
@@ -44,7 +48,12 @@ test("Opening multiple tabs in a context", async ({ context }) => {
   await youTubePage.goto("https://www.youtube.com/");
 
   // Wait for 3 seconds after navigating to the YouTube homepage
-  await youTubePage.waitForTimeout(3000);
+  //await youTubePage.waitForTimeout(3000);
+  const element=  youTubePage.locator("(//div[@class='yt-spec-touch-feedback-shape__fill'])[8]");
+
+  await element.scrollIntoViewIfNeeded();
+   
+  element.click();
 
   // Assert that the YouTube page has the expected title
   await expect(youTubePage).toHaveTitle("YouTube");
@@ -56,7 +65,7 @@ test("Opening multiple tabs in a context", async ({ context }) => {
   await youTubeSearchBox.fill("CYDEO");
 
   // Wait for 3 seconds after filling the search box
-  await youTubePage.waitForTimeout(3000);
+  //await youTubePage.waitForTimeout(3000);
 
   // Press the Enter key to submit the YouTube search
   await youTubeSearchBox.press("Enter");

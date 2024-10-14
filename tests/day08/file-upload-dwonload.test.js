@@ -52,4 +52,33 @@ test('File Upload Practice', async ({ page }) => {
       await expect(page.locator("text='File Uploaded!'")).toBeVisible();
     
 
+      
+
 });
+
+
+
+
+test('Search for CYDEO on YouTube and click the first link', async ({ page }) => {
+    // Navigate to YouTube
+    await page.goto('https://www.youtube.com');
+    await page.waitForTimeout(1000);
+    const element=  page.locator("(//div[@class='yt-spec-touch-feedback-shape yt-spec-touch-feedback-shape--touch-response-inverse'])[2]");
+    await element.scrollIntoViewIfNeeded();
+    element.click();
+    await page.waitForTimeout(2000);
+    // Type 'CYDEO' into the search bar
+    const searchInput = page.locator('input#search');
+    await searchInput.fill('CYDEO');
+    await page.waitForTimeout(1000);
+    // Click the search button
+    const searchButton = page.locator("//button[@id='search-icon-legacy']");
+    await searchButton.click();
+    await searchButton.click();
+    await searchButton.click();
+    await page.waitForTimeout(1000);
+    // Wait for the results to load and click the first video link
+    const firstVideo = page.locator('ytd-video-renderer').first();
+    await firstVideo.click();
+});
+
